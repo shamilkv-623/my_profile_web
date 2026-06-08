@@ -1,0 +1,14 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# React / Node
+node_modules/
+dist/
+
+# PyCharm
+.idea/
+
+# Environment files
+.env
