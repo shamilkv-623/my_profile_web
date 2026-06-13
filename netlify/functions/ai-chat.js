@@ -101,7 +101,7 @@ ${message}
   } catch (error) {
     console.error(error);
 
-    return {
+    return {cd
       statusCode: 500,
       headers: {
         "Content-Type": "application/json",

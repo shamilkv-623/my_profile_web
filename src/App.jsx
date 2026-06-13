@@ -265,16 +265,25 @@ function App() {
           />
 
           <ProjectCard
-            tag="Machine Learning • Banking"
-            title="Bank Telemarketing Success Prediction"
-            description="Built ML classification models using Logistic Regression, Random Forest, Bagging, and XGBoost for bank term-deposit prediction."
-            skills={[
-              "Python",
-              "Scikit-learn",
-              "XGBoost",
-              "EDA",
-            ]}
-          />
+              tag="Machine Learning • Banking"
+              title="Bank Telemarketing Success Prediction"
+              description="ML classification model for predicting bank term-deposit subscription."
+              skills={["Python", "Scikit-learn", "XGBoost", "EDA"]}
+              problem="Banks need to identify customers most likely to subscribe to term deposits to reduce campaign cost and improve targeting."
+              approach={[
+                "Performed EDA and feature preprocessing",
+                "Trained Logistic Regression, Random Forest, Bagging, and XGBoost models",
+                "Compared model performance using classification metrics"
+              ]}
+              impact={[
+                "Improved customer targeting strategy",
+                "Identified important campaign and customer features",
+                "Built a reusable ML pipeline for binary classification"
+              ]}
+          repoLink="https://github.com/shamilkv-623/Machine-learning"
+        />
+
+
 
           <ProjectCard
             tag="Business Analytics"
@@ -495,7 +504,16 @@ function App() {
 }
 
 /* PROJECT CARD COMPONENT */
-function ProjectCard({ tag, title, description, skills }) {
+function ProjectCard({
+  tag,
+  title,
+  description,
+  skills,
+  repoLink,
+  problem,
+  approach,
+  impact,
+}) {
   return (
     <div className="project-card">
       <div className="project-top">
@@ -503,7 +521,6 @@ function ProjectCard({ tag, title, description, skills }) {
       </div>
 
       <h3>{title}</h3>
-
       <p>{description}</p>
 
       <div className="stack">
@@ -512,8 +529,46 @@ function ProjectCard({ tag, title, description, skills }) {
         ))}
       </div>
 
+      <div className="project-popup">
+        <h4>{title}</h4>
+
+        <div className="popup-block">
+          <h5>Problem</h5>
+          <p>{problem || description}</p>
+        </div>
+
+        <div className="popup-block">
+          <h5>Approach</h5>
+          <ul>
+            {(approach || skills).map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="popup-block">
+          <h5>Impact</h5>
+          <ul>
+            {(impact || ["Project implementation and analysis completed"]).map(
+              (item, index) => (
+                <li key={index}>{item}</li>
+              )
+            )}
+          </ul>
+        </div>
+
+        <a
+          href={repoLink || "https://github.com/shamilkv-623"}
+          target="_blank"
+          rel="noreferrer"
+          className="popup-button"
+        >
+          Open Repository <FaArrowRight />
+        </a>
+      </div>
+
       <a
-        href="https://github.com/shamilkv-623"
+        href={repoLink || "https://github.com/shamilkv-623"}
         target="_blank"
         rel="noreferrer"
         className="project-link"
@@ -521,7 +576,6 @@ function ProjectCard({ tag, title, description, skills }) {
         View Project <FaArrowRight />
       </a>
     </div>
-
   );
 }
 

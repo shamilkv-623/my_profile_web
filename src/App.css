@@ -714,3 +714,120 @@ footer{
   }
 
 }
+.project-popup {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(460px, 90vw);
+  max-height: 430px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px 22px;
+  background: rgba(8, 14, 35, 0.98);
+  border: 1px solid rgba(96, 165, 250, 0.9);
+  border-radius: 22px;
+  box-shadow:
+    0 0 35px rgba(96, 165, 250, 0.35),
+    0 35px 90px rgba(0, 0, 0, 0.65);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.85);
+  transition: all 0.35s ease;
+  z-index: 9999;
+}
+
+.project-card:hover .project-popup,
+.project-popup:hover {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.project-popup h4 {
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+  line-height: 1.25;
+  color: #60a5fa;
+  text-align: center;
+}
+
+.popup-block {
+  margin-bottom: 12px;
+}
+
+.popup-block h5 {
+  color: #60a5fa;
+  font-size: 0.82rem;
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+.popup-block p {
+  color: #d1d5db;
+  font-size: 0.76rem;
+  line-height: 1.35;
+  text-align: left;
+  margin-bottom: 0;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+.popup-block ul {
+  margin: 0;
+  padding-left: 16px;
+}
+
+.popup-block li {
+  color: #d1d5db;
+  font-size: 0.76rem;
+  margin-bottom: 4px;
+  line-height: 1.35;
+  text-align: left;
+  overflow-wrap: break-word;
+}
+
+.popup-button,
+.popup-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  color: #60a5fa;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  margin-top: 10px;
+  cursor: pointer;
+  position: relative;
+  z-index: 10000;
+}
+
+.popup-button:hover {
+  color: #93c5fd;
+  transform: translateX(4px);
+}
+
+.project-popup::-webkit-scrollbar {
+  width: 5px;
+}
+
+.project-popup::-webkit-scrollbar-thumb {
+  background: rgba(96, 165, 250, 0.5);
+  border-radius: 10px;
+}
+
+.project-popup::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@media (max-width: 768px) {
+  .project-card:hover {
+    transform: none;
+  }
+
+  .project-popup {
+    display: none;
+  }
+}
